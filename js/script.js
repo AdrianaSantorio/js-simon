@@ -12,10 +12,12 @@ controllare che l'utente non inserisca 2 volte lo stesso numero
 
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max -min) + min);
 
-let cpuNumbers = [];
+const cpuNumbers = [];
 
 do {
-    cpuNumbers.push(getRandomNumber(0, 100));
+    const newNumber= getRandomNumber(0, 100);
+    if (!(cpuNumbers.includes(newNumber))) { 
+        cpuNumbers.push(newNumber)}
 
 } while (cpuNumbers.length < 5);
 
