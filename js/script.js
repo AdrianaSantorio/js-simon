@@ -26,16 +26,19 @@ console.log(cpuNumbers);
 alert(`Memorizza questi numeri!
 ${cpuNumbers}`);
 
+//non c' era per niente bisogno che questa fosse fuori
+//possiamo creare delle const min, max, tot, in modo da usarle tutte e non doverle ricambiare ovunque in caso di cambiamenti
 const userNumbers = [];
 
 const play = setTimeout(function() {
 
     do {
-        const newNumber = parseInt(prompt('inserisci i numeri che ricordi!'));
+        const newNumber = parseInt(prompt('inserisci i numeri che ricordi!').trim());
+        //questa poteva essere scritta tutta al contrario con le due condizioni prima e questi nell' else
         if (!isNaN(newNumber) && !(userNumbers.includes(newNumber))) {
             userNumbers.push(newNumber);
         } else if (isNaN(newNumber)) {
-            const errorMessage = alert('Devi inserire un numero!');
+                    const errorMessage = alert('Devi inserire un numero!');
         } else if (userNumbers.includes(newNumber)) {
             const errorMessage = alert('Hai già inserito questo numero!');
         }
@@ -49,11 +52,12 @@ const play = setTimeout(function() {
         return false;
     });
 
+    //todo: prepararsi l' opzione se non ne ha indovinato neanche uno!!!
     const message = alert(`Hai indovinato ${correctNumbers.length} numeri!
     I numeri corretti sono ${correctNumbers}`);
 
     
 
-}, 2000);
+}, 30000);
 
 console.log(userNumbers);
